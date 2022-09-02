@@ -9,6 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/skill")
+@CrossOrigin("http://localhost:4200/")
 public class SkillController {
     
     @Autowired
@@ -57,7 +59,7 @@ public class SkillController {
         }
         Skill skill = new Skill(skillDto.getNameSkill(),
                                 skillDto.getDirIcon(),
-                                skillDto.getPercentage());
+                                skillDto.getYears());
         skillService.save(skill);
         return new ResponseEntity(new Message("Nueva habilidad agregada"), HttpStatus.OK);
     }
@@ -71,7 +73,7 @@ public class SkillController {
         Skill skill = skillService.getOne(id).get();
                         skill.setNameSkill(skillDto.getNameSkill());
                         skill.setDirIcon(skillDto.getDirIcon());
-                        skill.setPercentage(skillDto.getPercentage());
+                        skill.setYears(skillDto.getYears());
         skillService.save(skill);
         return new ResponseEntity(new Message("Datos actualizados"), HttpStatus.OK);
     }
