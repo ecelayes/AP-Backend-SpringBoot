@@ -21,10 +21,10 @@ public class Skill {
     
     //Constructor
 
-    public Skill(String nameSkill, String dirIcon, int percentage) {
+    public Skill(String nameSkill, String dirIcon, int years) {
         this.nameSkill = nameSkill;
         this.dirIcon = dirIcon;
-        this.years = percentage;
+        this.years = years;
     }
     
 }
