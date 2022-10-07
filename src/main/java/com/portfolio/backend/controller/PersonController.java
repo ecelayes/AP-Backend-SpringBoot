@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/person")
-@CrossOrigin("https://portfolio-frontend-angular.web.app/")
+@CrossOrigin("https://ecelayes-portfolio.web.app/")
 public class PersonController {
     
     @Autowired
