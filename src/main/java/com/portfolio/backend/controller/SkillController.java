@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/skill")
-@CrossOrigin("https://ecelayes-portfolio.web.app/")
+@CrossOrigin(origins = {"https://ecelayes-portfolio.web.app/", "http://localhost:4200/"})
 public class SkillController {
     
     @Autowired
@@ -34,7 +34,7 @@ public class SkillController {
     }
     
     @GetMapping("/find/{id}")
-    public ResponseEntity<Skill> getById(@PathVariable("id") Long id){
+    public ResponseEntity<Skill> getById(@PathVariable("id") Integer id){
         if(!skillService.existById(id))
             return new ResponseEntity(new Message("El ID no existe"), HttpStatus.NOT_FOUND);
         Skill skill = skillService.getOne(id).get();
@@ -42,7 +42,7 @@ public class SkillController {
     }
     
     @DeleteMapping ("/delete/{id}")
-    public ResponseEntity<?> delete(@PathVariable("id") Long id){
+    public ResponseEntity<?> delete(@PathVariable("id") Integer id){
         if(!skillService.existById(id))
             return new ResponseEntity(new Message("El ID no existe"),HttpStatus.BAD_REQUEST);
         skillService.delete(id);
@@ -65,7 +65,7 @@ public class SkillController {
     }
     
     @PutMapping ("/update/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody SkillDto skillDto){
+    public ResponseEntity<?> update(@PathVariable("id") Integer id, @RequestBody SkillDto skillDto){
         if(!skillService.existById(id))
             return new ResponseEntity(new Message("El ID no existe"),HttpStatus.BAD_REQUEST);
         if(StringUtils.isBlank(skillDto.getNameSkill()))

@@ -19,11 +19,11 @@ public class ExperienceService {
         experienceRepository.save(experience);
     }
     
-    public void delete(Long id){
+    public void delete(Integer id){
         experienceRepository.deleteById(id);
     }
     
-    public Optional<Experience> getOne(Long id){
+    public Optional<Experience> getOne(Integer id){
         return experienceRepository.findById(id);
     }
     
@@ -35,7 +35,7 @@ public class ExperienceService {
         return experienceRepository.findAll();
     }
     
-    public boolean existById(Long id){
+    public boolean existById(Integer id){
         return experienceRepository.existsById(id);
     }
     

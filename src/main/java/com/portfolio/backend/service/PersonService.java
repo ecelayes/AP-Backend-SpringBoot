@@ -19,11 +19,11 @@ public class PersonService {
         personRepository.save(person);
     }
     
-    public void delete(Long id){
+    public void delete(Integer id){
         personRepository.deleteById(id);
     }
     
-    public Optional<Person> getOne(Long id){
+    public Optional<Person> getOne(Integer id){
         return personRepository.findById(id);
     }
     
@@ -35,7 +35,7 @@ public class PersonService {
         return personRepository.findAll();
     }
     
-    public boolean existById(Long id){
+    public boolean existById(Integer id){
         return personRepository.existsById(id);
     }
     

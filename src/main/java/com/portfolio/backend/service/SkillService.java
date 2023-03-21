@@ -19,11 +19,11 @@ public class SkillService {
         skillRepository.save(skill);
     }
     
-    public void delete(Long id){
+    public void delete(Integer id){
         skillRepository.deleteById(id);
     }
     
-    public Optional<Skill> getOne(Long id){
+    public Optional<Skill> getOne(Integer id){
         return skillRepository.findById(id);
     }
     
@@ -35,7 +35,7 @@ public class SkillService {
         return skillRepository.findAll();
     }
     
-    public boolean existById(Long id){
+    public boolean existById(Integer id){
         return skillRepository.existsById(id);
     }
     

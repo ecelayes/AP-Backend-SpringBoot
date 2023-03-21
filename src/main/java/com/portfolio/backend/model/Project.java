@@ -14,7 +14,7 @@ import lombok.Setter;
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     private String nameProject;
     private String dirImage;
     private String startDate;

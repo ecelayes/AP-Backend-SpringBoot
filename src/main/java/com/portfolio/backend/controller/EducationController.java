@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/education")
-@CrossOrigin("https://ecelayes-portfolio.web.app/")
+@CrossOrigin(origins = {"https://ecelayes-portfolio.web.app/", "http://localhost:4200/"} )
 public class EducationController {
     
     @Autowired
@@ -34,7 +34,7 @@ public class EducationController {
     }
     
     @GetMapping("/find/{id}")
-    public ResponseEntity<Education> getById(@PathVariable("id") Long id){
+    public ResponseEntity<Education> getById(@PathVariable("id") Integer id){
         if(!educationService.existById(id))
             return new ResponseEntity(new Message("El ID no existe"), HttpStatus.NOT_FOUND);
         Education education = educationService.getOne(id).get();
@@ -42,7 +42,7 @@ public class EducationController {
     }
     
     @DeleteMapping ("/delete/{id}")
-    public ResponseEntity<?> delete(@PathVariable("id") Long id){
+    public ResponseEntity<?> delete(@PathVariable("id") Integer id){
         if(!educationService.existById(id))
             return new ResponseEntity(new Message("El ID no existe"),HttpStatus.BAD_REQUEST);
         educationService.delete(id);
@@ -71,7 +71,7 @@ public class EducationController {
     }
     
     @PutMapping ("/update/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody EducationDto educationDto){
+    public ResponseEntity<?> update(@PathVariable("id") Integer id, @RequestBody EducationDto educationDto){
         if(!educationService.existById(id))
             return new ResponseEntity(new Message("El ID no existe"),HttpStatus.BAD_REQUEST);
         if(StringUtils.isBlank(educationDto.getDegree()))

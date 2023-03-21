@@ -19,14 +19,14 @@ public class EducationService {
         educationRepository.save(education);
     }
     
-    public void delete(Long id){
+    public void delete(Integer id){
         educationRepository.deleteById(id);
     }
     
-    public Optional<Education> getOne(Long id){
+    public Optional<Education> getOne(Integer id){
         return educationRepository.findById(id);
     }
-    
+
     public Optional<Education> getByDegree (String degree){
         return educationRepository.findByDegree(degree);
     }
@@ -35,7 +35,7 @@ public class EducationService {
         return educationRepository.findAll();
     }
     
-    public boolean existById(Long id){
+    public boolean existById(Integer id){
         return educationRepository.existsById(id);
     }
     

@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/experience")
-@CrossOrigin("https://ecelayes-portfolio.web.app/")
+@CrossOrigin(origins = {"https://ecelayes-portfolio.web.app/", "http://localhost:4200/"})
 public class ExperienceController {
     
     @Autowired
@@ -34,7 +34,7 @@ public class ExperienceController {
     }
     
     @GetMapping("/find/{id}")
-    public ResponseEntity<Experience> getById(@PathVariable("id") Long id){
+    public ResponseEntity<Experience> getById(@PathVariable("id") Integer id){
         if(!experienceService.existById(id))
             return new ResponseEntity(new Message("El ID no existe"), HttpStatus.NOT_FOUND);
         Experience experience = experienceService.getOne(id).get();
@@ -42,7 +42,7 @@ public class ExperienceController {
     }
     
     @DeleteMapping ("/delete/{id}")
-    public ResponseEntity<?> delete(@PathVariable("id") Long id){
+    public ResponseEntity<?> delete(@PathVariable("id") Integer id){
         if(!experienceService.existById(id))
             return new ResponseEntity(new Message("El ID no existe"),HttpStatus.BAD_REQUEST);
         experienceService.delete(id);
@@ -71,7 +71,7 @@ public class ExperienceController {
     }
     
     @PutMapping ("/update/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody ExperienceDto experienceDto){
+    public ResponseEntity<?> update(@PathVariable("id") Integer id, @RequestBody ExperienceDto experienceDto){
         if(!experienceService.existById(id))
             return new ResponseEntity(new Message("El ID no existe"),HttpStatus.BAD_REQUEST);
         if(StringUtils.isBlank(experienceDto.getCompany()))

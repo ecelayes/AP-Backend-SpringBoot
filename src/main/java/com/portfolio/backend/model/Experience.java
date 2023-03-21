@@ -14,7 +14,7 @@ import lombok.Setter;
 public class Experience {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     private String company;
     private String position;
     private String startDate;

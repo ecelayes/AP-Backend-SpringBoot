@@ -14,14 +14,14 @@ import lombok.Setter;
 public class Skill {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     private String nameSkill;
     private String dirIcon;
-    private int percentage;
+    private Integer percentage;
     
     //Constructor
 
-    public Skill(String nameSkill, String dirIcon, int percentage) {
+    public Skill(String nameSkill, String dirIcon, Integer percentage) {
         this.nameSkill = nameSkill;
         this.dirIcon = dirIcon;
         this.percentage = percentage;

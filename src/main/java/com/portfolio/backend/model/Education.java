@@ -14,7 +14,7 @@ import lombok.Setter;
 public class Education {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     private String institution;
     private String degree;
     private String career;

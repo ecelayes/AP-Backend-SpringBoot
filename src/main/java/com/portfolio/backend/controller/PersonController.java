@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/person")
-@CrossOrigin("https://ecelayes-portfolio.web.app/")
+@CrossOrigin(origins = {"https://ecelayes-portfolio.web.app/", "http://localhost:4200/"})
 public class PersonController {
     
     @Autowired
@@ -34,7 +34,7 @@ public class PersonController {
     }
     
     @GetMapping("/find/{id}")
-    public ResponseEntity<Person> getById(@PathVariable("id") Long id){
+    public ResponseEntity<Person> getById(@PathVariable("id") Integer id){
         if(!personService.existById(id))
             return new ResponseEntity(new Message("El ID no existe"), HttpStatus.NOT_FOUND);
         Person person = personService.getOne(id).get();
@@ -42,7 +42,7 @@ public class PersonController {
     }
     
     @DeleteMapping ("/delete/{id}")
-    public ResponseEntity<?> delete(@PathVariable("id") Long id){
+    public ResponseEntity<?> delete(@PathVariable("id") Integer id){
         if(!personService.existById(id))
             return new ResponseEntity(new Message("El ID no existe"),HttpStatus.BAD_REQUEST);
         personService.delete(id);
@@ -72,7 +72,7 @@ public class PersonController {
     }
     
     @PutMapping ("/update/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody PersonDto personDto){
+    public ResponseEntity<?> update(@PathVariable("id") Integer id, @RequestBody PersonDto personDto){
         if(!personService.existById(id))
             return new ResponseEntity(new Message("El ID no existe"),HttpStatus.BAD_REQUEST);
         if(StringUtils.isBlank(personDto.getName()))

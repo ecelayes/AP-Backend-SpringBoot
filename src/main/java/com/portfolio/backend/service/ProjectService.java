@@ -19,11 +19,11 @@ public class ProjectService {
         projectRepository.save(project);
     }
     
-    public void delete(Long id){
+    public void delete(Integer id){
         projectRepository.deleteById(id);
     }
     
-    public Optional<Project> getOne(Long id){
+    public Optional<Project> getOne(Integer id){
         return projectRepository.findById(id);
     }
     
@@ -35,7 +35,7 @@ public class ProjectService {
         return projectRepository.findAll();
     }
     
-    public boolean existById(Long id){
+    public boolean existById(Integer id){
         return projectRepository.existsById(id);
     }
     
