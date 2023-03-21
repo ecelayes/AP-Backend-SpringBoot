@@ -27,7 +27,6 @@ com\portfolio\backend\security\service\UserService.class
 com\portfolio\backend\dto\SkillDto.class
 com\portfolio\backend\model\Project.class
 com\portfolio\backend\security\jwt\JwtTokenFilter.class
-com\portfolio\backend\WebConfig.class
 com\portfolio\backend\security\model\User.class
 com\portfolio\backend\repository\EducationRepository.class
 com\portfolio\backend\repository\ExperienceRepository.class
